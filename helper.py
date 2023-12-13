@@ -211,7 +211,7 @@ def grab_all_youtube_links(content_html_str, download=False):
         fp.writelines(video_links)
 
 
-def save_processed_html(driver):
+def save_processed_html(driver, wait):
     contents = sync_get_elements_by_xpath(driver, wait, "//div[@id='content']")
     assert len(contents) == 1
 
@@ -223,3 +223,4 @@ def save_processed_html(driver):
     with open(file_name, 'w') as f:
         f.write(html_str)
 #     print("html_str= ", html_str)
+
